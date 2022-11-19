@@ -49,3 +49,16 @@ form {
         transform: rotate(360deg);
     }
 }
+
+#profile-frame {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#profile-picture {
+    height: 100px;
+}
