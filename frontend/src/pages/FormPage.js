@@ -54,6 +54,23 @@ const MyForm = () => (
             <input type="time" id="appt" name="appt"
               min="00:00" max="24:00" required></input>
           </div>
+          <span style={{"margin-top":"12px"}}>Fundacja: </span>
+          <div>
+           
+            <select name="Wybierz fundację">
+              <option value="Rak and Roll">Rak and Roll</option>
+              <option value="Fabryka tlenu">Fabryka tlenu</option>
+              <option value="Fundacja Dzieciom">Fundacja Dzieciom</option>
+              <option value="Avalom">Avalon</option>
+              <option value="WOŚP">Wielka Orkiestra Świątecznej Pomocy</option>
+              <option value="Caritas">Caritas</option>
+              <option value="PCK">Polski Czerwony Krzyż</option>
+
+
+
+
+            </select>
+          </div>
           <button style={{ "width": "30ch", "margin-left": "auto", "margin-right": "auto","margin-top":"30px" }} type="zatwierdz">Zatwierdź</button>
         </form>
       )}
