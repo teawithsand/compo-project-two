@@ -15,9 +15,10 @@ export default function Layout(){
                     <Nav.Link className = "asdf" onClick={() => navigate('/')} > Start </Nav.Link>
                     <Nav.Link className = "asdf" onClick={() => navigate('/form')} > Dodaj podróż </Nav.Link>
                     <Nav.Link className = "asdf" onClick={() => navigate('/profile')} > Mój profil </Nav.Link>
-                    <Nav.Link className = "asdf" onClick={() => navigate('/form')} > Historia podróży</Nav.Link>
+                    <Nav.Link className = "asdf" onClick={() => navigate('/history')} > Historia podróży</Nav.Link>
+                    <Nav.Link className = "asdf" onClick={() => navigate('/ranks')} > Ranking</Nav.Link>
                     <NavDropdown title="Ustawienia" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.1">Ustawienia profilu</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">
                             Another action
                         </NavDropdown.Item>

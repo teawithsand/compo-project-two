@@ -5,6 +5,8 @@ import HomePage from './pages/HomePage'
 import MyForm from './pages/FormPage'
 import Layout from './components/Layout'
 import ProfilePage from './pages/ProfilePage'
+import RanksPage from './pages/RanksPage'
+import HistoryPage from './pages/HistoryPage'
 
 function App() {
     return (
@@ -14,7 +16,9 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/form" element={<MyForm />} />
-                <Route path="profile" element={<ProfilePage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/ranks" element={<RanksPage />} />
+                <Route path="/history" element={<HistoryPage />} />
             </Routes>
         </BrowserRouter>
 

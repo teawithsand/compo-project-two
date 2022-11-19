@@ -23,7 +23,11 @@ function ProfilePage() {
                 <li><p style={{"font-weight":"bold"}}>Fabryka tlenu</p><span>566 zł (472 posadzonch drzew)</span></li>
                 <li><p style={{"font-weight":"bold"}}>Rak and Roll</p><span>321 zł</span></li>
             </ul>
-            
+            <h5>Zaoszczędziłem:</h5>
+            <ul>
+                <li>1300g CO2</li>
+                <li>137 l paliwa</li>
+            </ul>
             </div>
         </>
     )
