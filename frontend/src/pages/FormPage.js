@@ -1,55 +1,64 @@
 import { Form, Field } from 'react-final-form'
-function onSubmit(){
-    console.log("working")
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
+function onSubmit() {
+  console.log("working")
 }
-function validate(){
-    console.log("definitely working")
+function validate() {
+  console.log("definitely working")
 }
 
 const MyForm = () => (
-  <Form  
-  onSubmit={onSubmit}
-    validate={validate}
-    render={({ handleSubmit }) => (
-      <form onSubmit={handleSubmit}>
-        <h2>Od</h2>
-        <div>
-        
-          <Field name="Od" component="input" placeholder="Wpisz punkt startowy" />
-        </div>
-        <h2>Do</h2>
-        <Field name="Do">
-          {({ input, meta }) => (
-            <div>
-              <input type="text" {...input} placeholder="Wpisz punkt docelowy" />
-              {meta.touched && meta.error && <span>{meta.error}</span>}
-            </div>
-          )}
-        </Field>
-        <h2>Dodaj przystanek</h2>
-        <Field name="przystanek">
-          {({ input, meta }) => (
-            <div>
-              <input type="text" {...input} placeholder="Przystanek" />
-              {meta.touched && meta.error && <span>{meta.error}</span>}
-            </div>
-          )}
-        </Field>
-        
-    <label for="start">Data podróży:</label>
-    <input type="date" id="start" name="trip-start"
-       value="2022-11-20"
-       min="2022-11-19" max="2025-12-31">
+  <Container>
+    <Form
+      onSubmit={onSubmit}
+      validate={validate}
+      render={({ handleSubmit }) => (
+        <form onSubmit={handleSubmit}>
+          <h2 style={{"margin-top":"12px"}}>OD:</h2>
+          <div>
 
-        </input>
-        <label for="appt">Wybierz preferowaną godzinę odjazdu:</label>
+            <Field name="OD:" component="input" placeholder="Wpisz punkt startowy" />
+          </div>
+          <h2 style={{"margin-top":"12px"}}>DO:</h2>
+          <Field name="DO:">
+            {({ input, meta }) => (
+              <div>
+                <input type="text" {...input} placeholder="Wpisz punkt docelowy" />
+                {meta.touched && meta.error && <span>{meta.error}</span>}
+              </div>
+            )}
+          </Field>
+          <span style={{ "font-size": "20px","margin-top":"12px" }}>Dodaj przystanek</span>
+          <Field name="przystanek">
+            {({ input, meta }) => (
+              <div>
+                <input type="text" {...input} placeholder="Przystanek" />
+                {meta.touched && meta.error && <span>{meta.error}</span>}
+              </div>
+            )}
+          </Field>
 
-    <input type="time" id="appt" name="appt"
-        min="00:00" max="24:00" required></input>
-        <button type="zatwierdz">Zatwierdź</button>
-      </form>
-    )}
-  />
+          <span style={{"margin-top":"12px"}}>Data i godzina</span>
+          <div>
+            <input type="date" id="start" name="trip-start"
+              value="2022-11-20"
+              min="2022-11-19" max="2025-12-31">
+
+            </input>
+
+
+            <input type="time" id="appt" name="appt"
+              min="00:00" max="24:00" required></input>
+          </div>
+          <button style={{ "width": "30ch", "margin-left": "auto", "margin-right": "auto","margin-top":"30px" }} type="zatwierdz">Zatwierdź</button>
+        </form>
+      )}
+    />
+  </Container>
 )
 
 export default MyForm
