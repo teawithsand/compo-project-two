@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+      - ../..:/workspaces:cached
+      - ${TWS_DEPLOY_DIR}:/build
+    
+    command: sleep infinity
+    networks:
+      - "loc-net"
+    environment: 
+      - MONGODB_STRING=mongodb://user:user@mongodb
+
+  mongodb:
+    image: mongo:5.0
+    restart: on-failure
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=user
+      - PUID=1000
+      - PGID=1000
+      - MONGO_INITDB_DATABASE=travel
+      - MONGO_REPLICA_SET_NAME=rs0
+    healthcheck:
+      test: test $$(echo "rs.initiate().ok || rs.status().ok" | mongo -u $${MONGO_INITDB_ROOT_USERNAME} -p $${MONGO_INITDB_ROOT_PASSWORD} --quiet) -eq 1
+      interval: 10s
+      start_period: 30s
+    command: "--bind_ip_all --keyFile /opt/keyfile/keyfile --replSet rs0"
+networks:
+  loc-net:
+    name: verdaccio-local-net
+    external: true
