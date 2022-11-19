@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb'
 import { Travel, User } from './model'
 
-export const dbUrl = 'mongodb://user:user@mongodb'
+export const dbUrl = 'mongodb://user:user@mongodb:27017'
 
 export const mongoClient = new MongoClient(dbUrl)
 export const mongoDb = (() => {

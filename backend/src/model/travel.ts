@@ -1,5 +1,6 @@
 import { ObjectId } from 'mongodb'
 import { Car } from './car'
+import { Comment } from './discussion'
 
 export type Coordinates = [number, number]
 
@@ -31,20 +32,25 @@ export interface TravelDistanceData {
 }
 
 export interface Travel {
+	_id: ObjectId
+
 	title: string
 	description: string
+
+	tags: string[]
 
 	from: Coordinates
 	to: Coordinates
 	via: Coordinates[]
 
-	createdAt: Date
-	departTime: Date
+	createTimestamp: number
+	departTimestamp: number
 	departed: boolean
 
 	owner: ObjectId
-	confirmedBy: ObjectId | null
-	confirmedAt: Date | null
+
+	authorizedBy: ObjectId | null
+	authorizedAtTimestamp: number | null
 
 	participants: TravelParticipant[]
 	assignments: TravelAssignments | null

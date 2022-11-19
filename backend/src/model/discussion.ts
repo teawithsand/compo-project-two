@@ -4,5 +4,5 @@ export type Comment = {
     owner: ObjectId
     content: string
     createdAtTimestamp: number
-    lastEditedAtTimestamp: number
+    lastEditedAtTimestamp: number | null
 }

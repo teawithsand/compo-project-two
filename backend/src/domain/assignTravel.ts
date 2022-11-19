@@ -63,13 +63,26 @@ export const assignTravel = async (
 		driverIds.add(c.owner.toString())
 	}
 
+	let lastCarIndex = 0
 	for (const p of travel.participants) {
 		if (
 			p.type === TravelParticipantType.PASSENGER ||
 			p.type === TravelParticipantType.PASSENGER_OR_DRIVER
 		) {
-            if(driverIds.has(p.userId.toString())) continue;
+			if (driverIds.has(p.userId.toString())) continue
 
+			while (
+				assignedCars[lastCarIndex].passengers.length >=
+				assignedCars[lastCarIndex].car.passengerSeats
+			) {
+				lastCarIndex++
+			}
+
+			assignedCars[lastCarIndex].passengers.push(p.userId)
 		}
+	}
+
+	return {
+		cars: assignedCars,
 	}
 }
