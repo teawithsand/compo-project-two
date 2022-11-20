@@ -15,6 +15,16 @@ import { useUser } from '../User'
 import { TravelAssignmentView } from './TravelAssignmentView'
 import { TravelDiscussionForm } from './TravelDiscussionForm'
 
+const explainRole = (r: TravelParticipantType) => {
+    if (r === TravelParticipantType.DRIVER) {
+        return 'Kierowca'
+    } else if (r === TravelParticipantType.PASSENGER) {
+        return 'Pasażer'
+    } else if (r === TravelParticipantType.PASSENGER_OR_DRIVER) {
+        return 'Pasażer lub kierowca'
+    }
+}
+
 const Container = styled.div``
 
 export const TravelView = (props: { travel: Travel }) => {
@@ -174,7 +184,8 @@ export const TravelView = (props: { travel: Travel }) => {
                     return (
                         <li key={i}>
                             {!listUser ? 'Konto usunięte' : listUser.username}{' '}
-                            {listUser?._id === user._id ? '(Ty)' : null}
+                            {listUser?._id === user._id ? '(Ty)' : null}{" - "}
+                            {explainRole(v.type)}
                         </li>
                     )
                 })}

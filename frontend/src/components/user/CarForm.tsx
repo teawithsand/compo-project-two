@@ -9,8 +9,8 @@ export const CarForm = (props: {
     const [data, setData] = useState<Car>({} as any as Car)
 
     useEffect(() => {
-        setData({ ...data })
-    }, [data])
+        setData({ ...props.baseData })
+    }, [props.baseData])
 
     return (
         <Form

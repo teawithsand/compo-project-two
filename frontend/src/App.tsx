@@ -11,6 +11,7 @@ import { RegisterPage } from './page/RegisterPage'
 import { TravelCreatePage } from './page/TravelCreate'
 import { TravelListPage } from './page/TravelListPage'
 import { TravelViewPage } from './page/TravelView'
+import { UserListPage } from './page/UserListPage'
 import { UserViewPage } from './page/UserView'
 
 const App = () => {
@@ -43,6 +44,10 @@ const App = () => {
                         <Route
                             path="/travel/list"
                             element={<TravelListPage />}
+                        />
+                        <Route
+                            path="/debug/user/list"
+                            element={<UserListPage />}
                         />
                         <Route path="/debug" element={<DebugPage />} />
                     </Routes>

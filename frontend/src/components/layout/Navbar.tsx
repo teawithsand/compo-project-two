@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Nav, Navbar as BsNavbar } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import { User } from '../../domain/model'
+import { setUserId } from '../../domain/travelView'
 import { getUser, loginUser } from '../User'
 
 export const Navbar = () => {
     const [user, setUser] = useState<null | User>(null)
+    const navigate = useNavigate()
     useEffect(() => {
         setUser(getUser)
         const interval = setInterval(() => {
@@ -41,6 +44,15 @@ export const Navbar = () => {
                                 }}
                             >
                                 Wyloguj się ({user.username})
+                            </Nav.Link>
+
+                            <Nav.Link
+                                onClick={() => {
+                                    setUserId(user._id)
+                                    navigate('/user/view')
+                                }}
+                            >
+                                Profil
                             </Nav.Link>
                             <LinkContainer to="/car">
                                 <Nav.Link href="#">

@@ -45,7 +45,7 @@ export const TravelAssignmentView = (props: { travel: Travel }) => {
             const m = 0.8358
             return distance * m
         } else {
-            const m = 0.05214
+            const m = 0.5214
             return distance * m
         }
     })
@@ -84,6 +84,7 @@ export const TravelAssignmentView = (props: { travel: Travel }) => {
                 <thead>
                     <th>Lp</th>
                     <th>Kierowca</th>
+                    <th>Pojazd</th>
                     <th>Pasażerowie</th>
                     <th>Koszt przejazdu</th>
                 </thead>
@@ -124,6 +125,11 @@ export const TravelAssignmentView = (props: { travel: Travel }) => {
                                     >
                                         {makeBolder(driver)}
                                     </a>
+                                </td>
+                                <td>
+                                    {v.car.name}{' '}
+                                    {v.car.displacementCubicCentimeter}cm
+                                    <sup>3</sup>
                                 </td>
                                 <td>{makeBolder(passengers)}</td>
                                 <td>{fCost(costs[i])}zł</td>

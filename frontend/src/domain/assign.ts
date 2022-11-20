@@ -4,6 +4,7 @@ import {
     ObjectId,
     Travel,
     TravelAssignments,
+    TravelParticipant,
     TravelParticipantType,
 } from './model'
 
@@ -36,7 +37,26 @@ export const assignTravel = (
             })
         }
     }
+
+    const podCandidates: (TravelParticipant & {
+        type: TravelParticipantType.PASSENGER_OR_DRIVER
+    })[] = []
+
     for (const p of travel.participants) {
+        if (seats >= seatsRequired) break
+
+        if (p.type === TravelParticipantType.PASSENGER_OR_DRIVER) {
+            podCandidates.push(p)
+        }
+    }
+
+    podCandidates.sort(
+        (a, b) =>
+            a.car.displacementCubicCentimeter -
+            b.car.displacementCubicCentimeter
+    )
+
+    for (const p of podCandidates) {
         if (seats >= seatsRequired) break
 
         if (p.type === TravelParticipantType.PASSENGER_OR_DRIVER) {
@@ -56,8 +76,6 @@ export const assignTravel = (
         }
     }
 
-
-    // For now: cars with least displacement win
     cars.sort((c1, c2) => {
         return (
             c1.car.displacementCubicCentimeter -

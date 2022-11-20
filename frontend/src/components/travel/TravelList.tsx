@@ -36,8 +36,8 @@ export const TravelList = (props: { travels: Travel[] }) => {
             <Table striped hover bordered>
                 <thead>
                     <th>Lp.</th>
-                    <th>Z kąd</th>
-                    <th>Do kąd</th>
+                    <th>Z</th>
+                    <th>Do</th>
                     <th>Kiedy</th>
                     <th>Akcja</th>
                 </thead>

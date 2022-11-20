@@ -9,5 +9,7 @@ export interface User {
 	password: string
 	phoneNumber: string
 
+	moneySpend?: number
+
 	car: Car | null
 }
