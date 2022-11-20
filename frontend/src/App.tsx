@@ -12,6 +12,7 @@ import { TravelCreatePage } from './page/TravelCreate'
 import { TravelListPage } from './page/TravelListPage'
 import { TravelViewPage } from './page/TravelView'
 import { UserViewPage } from './page/UserView'
+import { ConnectionsMap } from './components/ConnectionsMap'
 
 const App = () => {
     return (
@@ -45,6 +46,10 @@ const App = () => {
                             element={<TravelListPage />}
                         />
                         <Route path="/debug" element={<DebugPage />} />
+                        <Route path="/mapdemo" element={<ConnectionsMap connections={[
+                            { start: [52.4, 16.9], end: [51.73, 19.5] },
+                            { start: [52.26, 21.05], end: [51.24, 22.53] }
+                        ]} />}></Route>
                     </Routes>
                 </Container>
             </BrowserRouter>
