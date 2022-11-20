@@ -32,6 +32,12 @@ export interface TravelDistanceData {
 	estimatedTime: number
 }
 
+export interface Foundation {
+	_id: ObjectId
+	name: string
+	moneySpent: number
+}
+
 export interface Travel {
 	_id: ObjectId
 

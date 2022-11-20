@@ -12,6 +12,7 @@ app.use(cors())
 
 app.use(makeCrudRouter('/api/user', mongoDb.users))
 app.use(makeCrudRouter('/api/travel', mongoDb.travels))
+app.use(makeCrudRouter('/api/foundation', mongoDb.foundations))
 
 app.listen(port, () => {
 	console.log(`⚡️[server]: Server is running at https://localhost:${port}`)

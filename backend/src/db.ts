@@ -10,5 +10,6 @@ export const mongoDb = (() => {
 		db,
 		users: db.collection<User>('users'),
 		travels: db.collection<Travel>('travels'),
+		foundations: db.collection<any>('foundations'),
 	}
 })()

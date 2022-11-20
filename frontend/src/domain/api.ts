@@ -1,4 +1,4 @@
-import { Travel, User } from './model'
+import { Foundation, Travel, User } from './model'
 
 export const crud = <T>(path: string) => {
     return {
@@ -51,7 +51,13 @@ export const crud = <T>(path: string) => {
                 method: 'GET',
             })
 
-            return await res.json()
+            if (res.status !== 200) return []
+
+            try {
+                return await res.json()
+            } catch (e) {
+                return []
+            }
         },
 
         get: async (id: string): Promise<T | null> => {
@@ -63,7 +69,13 @@ export const crud = <T>(path: string) => {
                 method: 'GET',
             })
 
-            return await res.json()
+            if (res.status !== 200) return null
+
+            try {
+                return await res.json()
+            } catch (e) {
+                return null
+            }
         },
         delete: async (id: string) => {
             await fetch(path + '/' + id, {
@@ -79,5 +91,8 @@ export const crud = <T>(path: string) => {
 
 export const userApi = crud<User>('http://localhost:3001/api/user')
 export const travelApi = crud<Travel>('http://localhost:3001/api/travel')
+export const foundationApi = crud<Foundation>(
+    'http://localhost:3001/api/foundation'
+)
 ;(window as any).userApi = userApi
 ;(window as any).travelApi = travelApi
